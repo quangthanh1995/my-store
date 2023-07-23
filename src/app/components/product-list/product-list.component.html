@@ -1,0 +1,8 @@
+<div class="product-container">
+  <div class="product-index" *ngFor="let item of items">
+    <app-product-item
+      [item]="item"
+      (product)="alertAddToCart(item.name)"
+    ></app-product-item>
+  </div>
+</div>

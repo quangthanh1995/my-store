@@ -1,27 +1,35 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+This is an Angular single page application for an e-commerce website which has features like product list, product details, cart, checkout and confirmation page.
+
+## Overview
+
+- The user can view the **product list** in the homepage.
+- The user can click on the image of the product to go to the **product details** page.
+- The user can click on button **Add to Cart** to add that product to **cart** (from both **product list** page and **product details** page).
+- The user can choose the **amount** of product that the user wants to buy (from both **product list** page and **product details** page).
+- The user can view the the **cart**.
+- The user can **change the amount** of products in the **cart**.
+- The user can **remove** items from the **cart**.
+- The user can **checkout** the order.
+- The user can see the **confirmation** page.
 
 ## Development server
 
+After finishing clone this repo from GitHub `https://github.com/quangthanh1995/my-store`, you can run the command `npm install` to install required package for this application.
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Routing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Product list page (homepage): [http://localhost:4000/](http://localhost:4000/)
 
-## Running end-to-end tests
+Product details page: [http://localhost:4000/products/:id](http://localhost:4000/products/:id)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Cart page: [http://localhost:4000/cart](http://localhost:4000/cart)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Confirmation page: [http://localhost:4000/confirmation](http://localhost:4000/confirmation)

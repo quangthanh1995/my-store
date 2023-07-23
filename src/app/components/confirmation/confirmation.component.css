@@ -1,0 +1,12 @@
+.confirmation-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 64px;
+  text-align: center;
+}
+
+.confirmation-success {
+  color: #33e5bc;
+  margin-bottom: 32px;
+}

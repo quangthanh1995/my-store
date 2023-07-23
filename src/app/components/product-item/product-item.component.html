@@ -1,0 +1,28 @@
+<div class="product-container" style="width: 18rem">
+  <img
+    src="{{ item?.url }}"
+    class="card-img-top product-image"
+    alt="product image"
+    routerLink="/product-details/{{ item?.id }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title" routerLink="/product-details/{{ item?.id }}">
+      {{ item?.name }}
+    </h5>
+    <p class="card-text">${{ item?.price }}</p>
+    <p>
+      <input
+        type="number"
+        min="1"
+        class="form-control select-input"
+        [(ngModel)]="amount"
+      />
+    </p>
+    <button
+      class="btn btn-primary"
+      (click)="addToCart(item?.id); product.emit(item?.name)"
+    >
+      Add to Cart
+    </button>
+  </div>
+</div>
