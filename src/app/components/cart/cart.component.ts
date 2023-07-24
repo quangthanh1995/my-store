@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import { AddedItem } from '../../models/AddedItem';
 import { CartItem } from '../../models/CartItem';
 import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -27,11 +28,14 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewChecked {
   messageError: string[] = [];
   private productSubscription: Subscription | undefined;
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    let storedItems = localStorage.getItem('cart_items');
-    this.addedItem = storedItems ? JSON.parse(storedItems) : [];
+    this.addedItem = this.cartService.getCartItems();
     this.mapper = this.addedItem.reduce((map, item) => {
       map.set(item.id, (map.get(item.id) || 0) + item.amount);
       return map;
@@ -111,6 +115,7 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.cartItem = this.cartItem.filter((item) => item.id !== id);
     this.calculateTotalPrice();
     localStorage.setItem('cart_items', JSON.stringify(this.cartItem));
+    alert(`Removed item from cart successfully!`);
   }
 
   onSubmit(form: NgForm): void {
